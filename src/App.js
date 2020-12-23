@@ -9,9 +9,6 @@ import Form from './app_component/form.component';
 import Weather from './app_component/weather.component';
 
 
-//api.openweathermap.org/data/2.5/weather?q=London,uk&appid={API key}
-const API_key = "4e146cf5d41008aa499079a1fe4d2946";
-
 
 class App extends React.Component{
   constructor(){
@@ -83,7 +80,7 @@ class App extends React.Component{
    
    if( city && country){
 
-     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_key}`);
+     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.REACT_APP_API_key}`);
 
     const response = await api_call.json();
 
